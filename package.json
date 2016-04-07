@@ -1,6 +1,6 @@
 {
   "name": "mondo-openapi",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "OpenAPI for Mondo Bank",
   "main": "generate-openapi.js",
   "scripts": {
