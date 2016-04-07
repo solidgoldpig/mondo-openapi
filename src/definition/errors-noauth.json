@@ -1,0 +1,23 @@
+{
+          "400": {
+            "$ref": "#/responses/400"
+          },
+          "404": {
+            "$ref": "#/responses/404"
+          },
+          "405": {
+            "$ref": "#/responses/405"
+          },
+          "406": {
+            "$ref": "#/responses/406"
+          },
+          "429": {
+            "$ref": "#/responses/429"
+          },
+          "500": {
+            "$ref": "#/responses/500"
+          },
+          "504": {
+            "$ref": "#/responses/504"
+      }
+    }

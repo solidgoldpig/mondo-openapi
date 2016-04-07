@@ -1,0 +1,41 @@
+{
+  "operationId": "deleteWebhook",
+  "summary": "Delete a webhook",
+  "description": "When you delete a webhook, we will no longer send notifications to it.",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "parameters": [
+    {
+      "type": "string",
+      "name": "webhook_id",
+      "in": "path",
+      "required": true,
+      "description": "Id of webhook to delete"
+    }
+  ],
+  "tags": [
+    "webhook"
+  ],
+  "responses": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/errors"
+      },
+      {
+        "200": {
+          "description": "An empty object",
+          "schema": {
+            "type": "object",
+            "properties": {}
+          },
+          "examples": {
+            "application/json": {}
+          }
+        }
+      }
+    ]
+  }
+}

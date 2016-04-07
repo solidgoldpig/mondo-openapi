@@ -1,0 +1,38 @@
+{
+  "name": "mondo-openapi",
+  "version": "1.0.0",
+  "description": "OpenAPI for Mondo Bank",
+  "main": "generate-openapi.js",
+  "scripts": {
+    "postinstall": "npm run openapi",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "openapi": "node app/generate-openapi.js",
+    "watchopenapi": "chokidar 'src/**/*' -c 'npm run openapi'",
+    "start": "npm run openapi",
+    "precommit": "node_modules/standard-format/bin.js -w app/**"
+  },
+  "keywords": [
+    "mondo",
+    "banking",
+    "api",
+    "openapi"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/solidgoldpig/mondo-openapi"
+  },
+  "bugs": {
+    "url": "https://github.com/solidgoldpig/mondo-openapi/issues"
+  },
+  "author": "Alex Robinson <code@alex.solidgoldpig.com> (http://code.solidgoldpig.com/)",
+  "dependencies": {
+    "chokidar": "^1.4.2",
+    "chokidar-cli": "^1.2.0",
+    "json-refs": "^2.1.2",
+    "jsonpath": "^0.2.2",
+    "mkdirp": "^0.5.1"
+  },
+  "devDependencies": {
+    "standard-format": "^2.1.1"
+  }
+}

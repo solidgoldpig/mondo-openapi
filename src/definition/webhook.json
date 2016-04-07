@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "type": "string",
+      "description": "Id of account webhook registered against"
+    },
+    "id": {
+      "type": "string",
+      "description": "Id of webhook"
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "description": "URL registered by webhook"
+    }
+  },
+  "required": [
+    "account_id",
+    "id",
+    "url"
+  ]
+}

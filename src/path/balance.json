@@ -1,0 +1,54 @@
+{
+  "operationId": "balance",
+  "summary": "Get an account’s balance.",
+  "description": "Returns balance information for a specific account",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "tags": [
+    "balance"
+  ],
+  "parameters": [
+    {
+      "$ref": "#/parameters/account_id"
+    }
+  ],
+  "responses": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/errors"
+      },
+      {
+        "200": {
+          "description": "Balance info",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "balance": {
+                "type": "number",
+                "description": "The currently available balance of the account, as a 64bit integer in minor units of the currency, eg. pennies for GBP, or cents for EUR and USD."
+              },
+              "currency": {
+                "type": "string",
+                "description": "The ISO 4217 currency code."
+              },
+              "spend_today": {
+                "type": "number",
+                "description": "The amount spent from this account today (considered from approx 4am onwards), as a 64bit integer in minor units of the currency."
+              }
+            }
+          },
+          "examples": {
+            "application/json": {
+              "balance": 5000,
+              "currency": "GBP",
+              "spend_today": 0
+            }
+          }
+        }
+      }
+    ]
+  }
+}

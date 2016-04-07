@@ -1,0 +1,95 @@
+{
+  "operationId": "registerAttachment",
+  "summary": "Register an attachment",
+  "description": "Once you have obtained a URL for an attachment, either by uploading to the `upload_url` obtained from the upload endpoint above or by hosting a remote image, this URL can then be registered against a transaction. Once an attachment is registered against a transaction this will be displayed on the detail page of a transaction within the Mondo app.",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "external_id",
+      "type": "string",
+      "in": "formData",
+      "required": true,
+      "description": "The id of the `transaction` to associate the `attachment` with."
+    },
+    {
+      "name": "file_url",
+      "type": "string",
+      "in": "formData",
+      "required": true,
+      "description": "The URL of the uploaded `attachment`."
+    },
+    {
+      "name": "file_type",
+      "type": "string",
+      "in": "formData",
+      "required": true,
+      "description": "The content type of the `attachment`."
+    }
+  ],
+  "tags": [
+    "attachment"
+  ],
+  "responses": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/errors"
+      },
+      {
+        "200": {
+          "description": "Attachment register details",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "attachment": {
+                "description": "The URL of the file once it has been uploaded",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "The ID of the attachment. This can be used to deregister at a later date."
+                  },
+                  "user_id": {
+                    "type": "string",
+                    "description": "The id of the user who owns this attachment"
+                  },
+                  "external_id": {
+                    "type": "string",
+                    "description": "The id of the transaction to which the attachment is attached."
+                  },
+                  "file_url": {
+                    "type": "string",
+                    "description": "The URL at which the attachment is available."
+                  },
+                  "file_type": {
+                    "type": "string",
+                    "description": "The file type of the attachment."
+                  },
+                  "created": {
+                    "type": "string",
+                    "description": "The timestamp in UTC when the attachment was created."
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "attachment": {
+                  "id": "attach_00009238aOAIvVqfb9LrZh",
+                  "user_id": "user_00009238aMBIIrS5Rdncq9",
+                  "external_id": "tx_00008zIcpb1TB4yeIFXMzx",
+                  "file_url": "https://s3-eu-west-1.amazonaws.com/mondo-image-uploads/user_00009237hliZellUicKuG1/LcCu4ogv1xW28OCcvOTL-foo.png",
+                  "file_type": "image/png",
+                  "created": "2015-11-12T18:37:02Z"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

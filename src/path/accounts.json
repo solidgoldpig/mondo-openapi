@@ -1,0 +1,49 @@
+{
+  "operationId": "accounts",
+  "summary": "List accounts",
+  "description": "Returns a list of accounts owned by the currently authorised user",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "tags": [
+    "accounts"
+  ],
+  "responses": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/errors"
+      },
+      {
+        "200": {
+          "description": "An array of accounts",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "accounts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/account"
+                }
+              }
+            }
+          },
+          "examples": {
+            "application/json": {
+              "accounts": [
+                {
+                  "id": "acc_00009237ZqC8c5umZmrRdh",
+                  "account_number": "71164725",
+                  "description": "Peter Pan's Account",
+                  "sort_code": "000001",
+                  "created": "2015-11-13T12:17:42Z"
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+}

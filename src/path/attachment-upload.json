@@ -1,0 +1,60 @@
+{
+  "operationId": "uploadAttachment",
+  "summary": "Upload an attachment",
+  "description": "The first step when uploading an attachment is to obtain a temporary URL to which the file can be uploaded. The response will include a `file_url` which will be the URL of the resulting file, and an `upload_url` to which the file should be uploaded to.",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "file_name",
+      "type": "string",
+      "in": "formData",
+      "required": true,
+      "description": "The name of the file to be uploaded"
+    },
+    {
+      "name": "file_type",
+      "type": "string",
+      "in": "formData",
+      "required": true,
+      "description": "The content type of the file"
+    }
+  ],
+  "tags": [
+    "attachment"
+  ],
+  "responses": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/errors"
+      },
+      {
+        "200": {
+          "description": "Attachment upload details",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "file_url": {
+                "type": "string",
+                "description": "The URL of the file once it has been uploaded"
+              },
+              "upload_url": {
+                "type": "string",
+                "description": "The URL to `POST` the file to when uploading"
+              }
+            }
+          },
+          "examples": {
+            "application/json": {
+              "file_url": "https://s3-eu-west-1.amazonaws.com/mondo-image-uploads/user_00009237hliZellUicKuG1/LcCu4ogv1xW28OCcvOTL-foo.png",
+              "upload_url": "https://mondo-image-uploads.s3.amazonaws.com/user_00009237hliZellUicKuG1/LcCu4ogv1xW28OCcvOTL-foo.png?AWSAccessKeyId=AKIAIR3IFH6UCTCXB5PQ\u0026Expires=1447353431\u0026Signature=k2QeDCCQQHaZeynzYKckejqXRGU%!D(MISSING)"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

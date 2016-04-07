@@ -1,0 +1,61 @@
+{
+  "/oauth2/token": {
+    "post": {
+      "$ref": "./path/token.json"
+    }
+  },
+  "/accounts": {
+    "get": {
+      "$ref": "./path/accounts.json"
+    }
+  },
+  "/balance": {
+    "get": {
+      "$ref": "./path/balance.json"
+    }
+  },
+  "/transactions": {
+    "get": {
+      "$ref": "./path/transactions.json"
+    }
+  },
+  "/transactions/{transaction_id}": {
+    "get": {
+      "$ref": "./path/transaction.json"
+    },
+    "patch": {
+      "$ref": "./path/annotate-transaction.json"
+    }
+  },
+  "/feed": {
+    "post": {
+      "$ref": "./path/feed-create.json"
+    }
+  },
+  "/webhooks": {
+    "get": {
+      "$ref": "./path/webhook.json"
+    },
+    "post": {
+      "$ref": "./path/webhook-register.json"
+    },
+    "delete": {
+      "$ref": "./path/webhook-delete.json"
+    }
+  },
+  "/attachment/upload": {
+    "post": {
+      "$ref": "./path/attachment-upload.json"
+    }
+  },
+  "/attachment/register": {
+    "post": {
+      "$ref": "./path/attachment-register.json"
+    }
+  },
+  "/attachment/deregister": {
+    "post": {
+      "$ref": "./path/attachment-deregister.json"
+    }
+  }
+}

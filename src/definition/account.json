@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Id of the account"
+    },
+    "account_number": {
+      "type": "string",
+      "description": "Number of account"
+    },
+    "description": {
+      "type": "boolean",
+      "description": "Name of account"
+    },
+    "sort_code": {
+      "type": "string",
+      "pattern": "\\d{6}",
+      "description": "Bank sort code"
+    },
+    "created": {
+      "format": "date-time",
+      "type": "string",
+      "description": "Date account was created<br>RFC 3339-encoded timestamp.<br>eg. <code>2009-11-10T23:00:00Z</code>"
+    }
+  }
+}

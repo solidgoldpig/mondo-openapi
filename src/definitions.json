@@ -1,0 +1,20 @@
+{
+  "errors-noauth": {
+    "$ref": "./definition/errors-noauth.json"
+  },
+  "errors": {
+    "$ref": "./definition/errors.json"
+  },
+  "account": {
+    "$ref": "./definition/account.json"
+  },
+  "transaction": {
+    "$ref": "./definition/transaction.json"
+  },
+  "annotations": {
+    "$ref": "./definition/annotations.json"
+  },
+  "webhook": {
+    "$ref": "./definition/webhook.json"
+  }
+}

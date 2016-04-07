@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "meta[foo]": {
+      "type": "string",
+      "description": "Annotate with value attached to foo key"
+    }
+  }
+}

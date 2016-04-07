@@ -1,0 +1,103 @@
+{
+  "operationId": "createFeedItem",
+  "summary": "Create a feed item on the user’s feed",
+  "description": "xxxxxxx",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "body",
+      "type": "object",
+      "in": "body",
+      "schema": {
+        "type": "object",
+        "required": [
+          "account_id",
+          "type",
+          "params"
+        ],
+        "properties": {
+          "account_id": {
+            "$ref": "#/parameters/account_id"
+          },
+          "type": {
+            "name": "type",
+            "type": "string",
+            "description": "Type of feed item. Currently only basic is supported",
+            "enum": [
+              "basic"
+            ],
+            "default": "basic"
+          },
+          "params": {
+            "name": "params",
+            "type": "object",
+            "in": "formData",
+            "description": "A *map* of parameters which vary based on `type`",
+            "required": [
+              "title",
+              "image_url"
+            ],
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "The title to display."
+              },
+              "image_url": {
+                "type": "string",
+                "description": "URL of the image to display. This will be displayed as an icon in the feed, and on the expanded page if no `url` has been provided."
+              },
+              "body": {
+                "type": "string",
+                "description": "The body text of the feed item."
+              },
+              "background_color": {
+                "type": "string",
+                "description": "Hex value for the background colour of the feed item. Defaults to to standard app colours (ie. white background)."
+              },
+              "title_color": {
+                "type": "string",
+                "description": "Hex value for the colour of the title text. Defaults to standard app colours."
+              },
+              "body_color": {
+                "type": "string",
+                "description": "Hex value for the colour of the body text. Defaults to standard app colours."
+              }
+            }
+          },
+          "url": {
+            "name": "url",
+            "type": "string",
+            "in": "formData",
+            "description": "A URL to open when the feed item is tapped. If no URL is provided, the app will display a fallback view based on the title and body"
+          }
+        }
+      }
+    }
+  ],
+  "tags": [
+    "feed"
+  ],
+  "responses": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/errors"
+      },
+      {
+        "200": {
+          "description": "An empty object",
+          "schema": {
+            "type": "object",
+            "properties": {}
+          },
+          "examples": {
+            "application/json": {}
+          }
+        }
+      }
+    ]
+  }
+}

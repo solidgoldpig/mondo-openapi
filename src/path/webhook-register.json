@@ -1,0 +1,53 @@
+{
+  "operationId": "registerWebhook",
+  "summary": "Register a webhook",
+  "description": "Each time a matching event occurs, we will make a POST call to the URL you provide. If the call fails, we will retry up to a maximum of 5 attempts, with exponential backoff.",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "parameters": [
+    {
+      "$ref": "#/parameters/account_id"
+    },
+    {
+      "name": "url",
+      "type": "string",
+      "in": "formData",
+      "description": "The URL we will send notifications to."
+    }
+  ],
+  "tags": [
+    "webhook"
+  ],
+  "responses": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/errors"
+      },
+      {
+        "200": {
+          "description": "Webhook details",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "webhook": {
+                "$ref": "#/definitions/webhook"
+              }
+            }
+          },
+          "examples": {
+            "application/json": {
+              "webhook": {
+                "account_id": "account_id",
+                "id": "webhook_id",
+                "url": "http://example.com"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

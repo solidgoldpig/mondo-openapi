@@ -1,0 +1,41 @@
+{
+  "operationId": "deregisterAttachment",
+  "summary": "Deregister an attachment",
+  "description": "To remove an `attachment`, simply deregister this using its `id`",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "parameters": [
+    {
+      "name": "id",
+      "type": "string",
+      "in": "formData",
+      "required": true,
+      "description": "The `id` of the `attachment` to deregister."
+    }
+  ],
+  "tags": [
+    "attachment"
+  ],
+  "responses": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/errors"
+      },
+      {
+        "200": {
+          "description": "Empty object",
+          "schema": {
+            "type": "object",
+            "properties": {},
+            "examples": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    ]
+  }
+}

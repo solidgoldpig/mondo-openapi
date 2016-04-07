@@ -1,0 +1,52 @@
+{
+  "operationId": "webhooks",
+  "summary": "List webhooks",
+  "description": "List the webhooks your application has registered on an account.",
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "tags": [
+    "webhook"
+  ],
+  "responses": {
+    "allOf": [
+      {
+        "$ref": "#/definitions/errors"
+      },
+      {
+        "200": {
+          "description": "An array of webhooks",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "webhooks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/webhook"
+                }
+              }
+            }
+          },
+          "examples": {
+            "application/json": {
+              "webhooks": [
+                {
+                  "account_id": "acc_000091yf79yMwNaZHhHGzp",
+                  "id": "webhook_000091yhhOmrXQaVZ1Irsv",
+                  "url": "http://example.com/callback"
+                },
+                {
+                  "account_id": "acc_000091yf79yMwNaZHhHGzp",
+                  "id": "webhook_000091yhhzvJSxLYGAceC9",
+                  "url": "http://example2.com/anothercallback"
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+}

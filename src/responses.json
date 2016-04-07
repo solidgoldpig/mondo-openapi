@@ -1,0 +1,192 @@
+{
+  "400": {
+    "description": "Bad request",
+    "schema": {
+      "type": "object",
+      "required": [
+        "status",
+        "error"
+      ],
+      "properties": {
+        "status": {
+          "type": "number",
+          "enum": [
+            400
+          ]
+        },
+        "error": {
+          "type": "object",
+          "properties": {
+            "error": {
+              "type": "string"
+            },
+            "error_description": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "examples": {
+      "application/json": {
+        "status": 400,
+        "error": {
+          "error": "invalid_grant",
+          "error_description": "Invalid grant_type",
+          "message": "Invalid grant_type"
+        }
+      }
+    }
+  },
+  "401": {
+    "description": "Unauthorized",
+    "schema": {
+      "type": "object",
+      "required": [
+        "status",
+        "message",
+        "params"
+      ],
+      "properties": {
+        "status": {
+          "type": "number",
+          "enum": [
+            401
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "Client-Endpoint": {
+              "type": "string"
+            },
+            "Client-Service": {
+              "type": "string"
+            },
+            "Client-Uid": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "service": {
+              "type": "string"
+            },
+            "trace_id": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "examples": {
+      "application/json": {
+        "status": 401,
+        "error": {
+          "code": "unauthorized",
+          "message": "User authentication required",
+          "params": {
+            "Client-Endpoint": "handlehttp",
+            "Client-Service": "service.api.accounts",
+            "Client-Uid": "api",
+            "endpoint": "accounts",
+            "service": "api",
+            "trace_id": "06336f38-9a84-4d4a-58a6-9b094c02f531"
+          }
+        }
+      }
+    }
+  },
+  "403": {
+    "description": "Forbidden",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "403NOTDONE": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "404": {
+    "description": "Not found",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "404NOTDONE": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "405": {
+    "description": "Method Not Allowed",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "number"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "examples": {
+      "application/json": {
+        "status": 405,
+        "error": "Method Not Allowed\n"
+      }
+    }
+  },
+  "406": {
+    "description": "Not Acceptable",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "406NOTDONE": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "429": {
+    "description": "Too Many Requests",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "429NOTDONE": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "500": {
+    "description": "Internal Server Error",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "500NOTDONE": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "504": {
+    "description": "Gateway Timeout",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "504NOTDONE": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
